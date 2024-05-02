@@ -9,7 +9,7 @@ module.exports = {
     // https://github.com/facebook/react/issues/24125
     runtime: 'nodejs',
     serverComponents: true,
-    reactRoot: true,
+    // reactRoot: true,
   },
   /*
   webpackDevMiddleware: (config) => {
