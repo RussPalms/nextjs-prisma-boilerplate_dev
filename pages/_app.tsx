@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { SessionProvider } from 'next-auth/react';
 import { AppProps } from 'next/app';
 import { IconContext } from 'react-icons';
+// import { Hydrate } from 'react-query';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { ThemeProvider } from 'next-themes';
@@ -9,6 +10,9 @@ import { themes } from 'lib-client/constants';
 import getQueryClientConfig from 'lib-client/react-query/queryClientConfig';
 
 import 'styles/index.scss';
+// import { ReactQueryDevtools } from 'react-query-devtools';
+// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const App = ({
   Component,

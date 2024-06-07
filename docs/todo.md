@@ -71,7 +71,7 @@
 - testing-lib/react-hooks ReactDom warning
 - kill next.js server on unhandled promise rejection
 - supertest pass dynamic route arg `/api/posts/:id`, maybe exists nicer solution {id}
-- change all ports from 3001 to 3000
+- change all ports from 42069 to 3000
 - default theme fallback
 - run docker-compose as non root to avoid mount folders as root, app-dev, app-test containers...
 - user in Cypress container for screenshots as non root
@@ -245,7 +245,7 @@
 - extend docker-compose.yml test, e2e, done
 - remove docker multistage Dockerfile dev, test and e2e, done
 - lib-client/constants.ts in typescript cypress import?, done, 2 tsconfig.json files
-- CORS error 3001 3005, whitelist maybe, run tests on 3001 for now, dont do this
+- CORS error 42069 3005, whitelist maybe, run tests on 42069 for now, dont do this
 - fix typesctipt `strict` and `strictNullChecks`, done
 - migrate db, `prisma:migrate:test:env` for integration tests, nothing to do
 - parse FormData for test, done
@@ -285,7 +285,7 @@
 - SettingsView test fails because of react-hook-form, done
 - add seed Postgres container inside Github Actions directly, done
 - docblocks in api functions, no
-- Google profile not found `https://localhost:3001/google_user_cl4tpvliv0020s0pn5lt41q7s/`, trimmed to first 6 chars in next-auth, done
+- Google profile not found `https://localhost:42069/google_user_cl4tpvliv0020s0pn5lt41q7s/`, trimmed to first 6 chars in next-auth, done
 - settings google avatar fails, paceholder, profile too, only when im logged out or other user, maybe download avatar, done
 - google avatar fails too 403 forbidden, must bypass imageLoader for http:// ? `Rate-limit exceeded That’s all we know.`, fixed, just forward src in imageLoader for full url, dont touch Image component, done
 - facebook login fails, it works, just **must not use same email** with google, maybe handle that in next-auth if its worth it

@@ -19,7 +19,7 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  const port = parseInt(process.env.PORT || '3001', 10);
+  const port = parseInt(process.env.PORT || '42069', 10);
   const isHttps = process.env.SITE_PROTOCOL === 'https';
 
   if (isHttps) {

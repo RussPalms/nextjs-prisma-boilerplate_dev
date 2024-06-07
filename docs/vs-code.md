@@ -67,7 +67,7 @@ export default $1;
 ### Devcontainers, final
 
 - run `npb-db-dev` database container
-- right click app container `npb-app-dev` -> `Attach to container` -> open `/app` folder -> `install recommended extensions`, open app on `http://localhost:3001`, that's it
+- right click app container `npb-app-dev` -> `Attach to container` -> open `/app` folder -> `install recommended extensions`, open app on `http://localhost:42069`, that's it
 - to see dev app node.js log `Show container log`
 - run tests, use local yarn scripts probably all works
 
@@ -81,7 +81,7 @@ git config --list
 
 ### Debug Chrome on mobile phone
 
-- on a phone go to `https://192.168.x.x:3001`
+- on a phone go to `https://192.168.x.x:42069`
 - enable Android debugger and connect phone with usb cable
 - on computer Chrome go to `chrome://inspect/#devices`
 - youtube [tutorial](https://www.youtube.com/watch?v=5t5XZKUgp9Y)

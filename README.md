@@ -2,11 +2,11 @@
 
 # Next.js Prisma Boilerplate
 
-[![tests](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/tests.yml/badge.svg)](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/tests.yml)
-[![docker build](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/build-docker-image.yml/badge.svg)](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/build-docker-image.yml)
-[![deploy](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/deploy.yml/badge.svg)](https://github.com/nemanjam/nextjs-prisma-boilerplate/actions/workflows/deploy.yml)
-![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nemanjamitic/nextjs-prisma-boilerplate/latest?logo=docker)
-![GitHub](https://img.shields.io/github/license/nemanjam/nextjs-prisma-boilerplate)
+[![tests](https://github.com/russpalms/nextjs-prisma-boilerplate/actions/workflows/tests.yml/badge.svg)](https://github.com/russpalms/nextjs-prisma-boilerplate/actions/workflows/tests.yml)
+[![docker build](https://github.com/russpalms/nextjs-prisma-boilerplate/actions/workflows/build-docker-image.yml/badge.svg)](https://github.com/russpalms/nextjs-prisma-boilerplate/actions/workflows/build-docker-image.yml)
+[![deploy](https://github.com/russpalms/nextjs-prisma-boilerplate/actions/workflows/deploy.yml/badge.svg)](https://github.com/russpalms/nextjs-prisma-boilerplate/actions/workflows/deploy.yml)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/russpalms/nextjs-prisma-boilerplate/latest?logo=docker)
+![GitHub](https://img.shields.io/github/license/russpalms/nextjs-prisma-boilerplate)
 
 This is full stack boilerplate built around latest Next.js stack. It is composed of the best practices described in official docs combined with my decisions derived from my own experience and knowledge that I have gathered from working with other people.
 
@@ -18,7 +18,7 @@ Don't spend next 3 months making architectural decisions, choosing libraries, se
 
 > If the app is vandalized just use `Reseed` link on the right side of the footer to reseed the database.
 
-- **[https://nextjs-prisma-boilerplate.amd1.nemanjamitic.com](https://nextjs-prisma-boilerplate.amd1.nemanjamitic.com/)**
+- **[https://nextjs-prisma-boilerplate.amd1.russpalmsitic.com](https://nextjs-prisma-boilerplate.amd1.russpalmsitic.com/)**
 
 #### Gitpod development playground:
 
@@ -118,7 +118,7 @@ React `18.2.0`, Next.js `12.2.0`, Node.js `16.13.1`, Prisma `4`, Postgres `14.3`
 #### Production:
 
 - two staging environments (local and Docker) for testing app built in production mode
-- one live production environment with Docker and Traefik reverse proxy in separate repository [nemanjam/traefik-proxy](https://github.com/nemanjam/traefik-proxy) for deployment on VPS
+- one live production environment with Docker and Traefik reverse proxy in separate repository [russpalms/traefik-proxy](https://github.com/russpalms/traefik-proxy) for deployment on VPS
 
 #### CI/CD:
 
@@ -163,7 +163,7 @@ Clone repository and install dependencies.
 
 ```bash
 # clone repository
-git clone git@github.com:nemanjam/nextjs-prisma-boilerplate.git
+git clone git@github.com:russpalms/nextjs-prisma-boilerplate.git
 cd nextjs-prisma-boilerplate
 
 # install dependencies
@@ -176,14 +176,14 @@ Fill in required **public** environment variables in `.env.development`. Fastest
 
 > You need `https` locally only for Facebook OAuth login. For that you need `mkcert` to install certificates for `localhost`, instructions for that you can find in `docs` folder.
 
-Leave `PORT` as 3001, it is hardcoded in multiple places, if you want to change it you must edit all of them (i.e. all `Dockerfile.*` and `docker-compose.*.yml`)
+Leave `PORT` as 42069, it is hardcoded in multiple places, if you want to change it you must edit all of them (i.e. all `Dockerfile.*` and `docker-compose.*.yml`)
 
 ```bash
 # .env.development
 
 SITE_PROTOCOL=http
-SITE_HOSTNAME=localhost
-PORT=3001
+SITE_HOSTNAME=192.168.4.200
+PORT=42069
 
 # don't touch these two variables
 APP_ENV=local
@@ -214,9 +214,9 @@ Fill in required **private** environment variables. The only required variables 
 # .env.development.local
 
 # set database connection
-POSTGRES_HOSTNAME=localhost
+POSTGRES_HOSTNAME=192.168.4.200
 POSTGRES_PORT=5432
-POSTGRES_USER=postgres_user
+POSTGRES_USER=rpalm_user
 POSTGRES_PASSWORD=password
 POSTGRES_DB=npb-db-dev
 
@@ -249,7 +249,7 @@ yarn prisma:migrate:dev:env
 yarn prisma:seed:dev:env
 ```
 
-At this point everything is ready, you can now start the app. Open `http://localhost:3001` in the browser to see the running app.
+At this point everything is ready, you can now start the app. Open `http://localhost:42069` in the browser to see the running app.
 
 ```bash
 # start the app in dev mode
@@ -272,7 +272,7 @@ Docker environment will read variables from `envs/development-docker` folder. Cr
 cp envs/development-docker/.env.development.docker.local.example envs/development-docker/.env.development.docker.local
 ```
 
-Run the app, database and Adminer containers. That's it. Project folder is mounted to `/app` folder inside container, you can either edit source directly on host or open Remote containers extension tab and right click `npb-app-dev` and select `Attach to Container` and open `/app` folder in remote VS Code instance. Open `http://localhost:3001` in the browser on host to see the running app.
+Run the app, database and Adminer containers. That's it. Project folder is mounted to `/app` folder inside container, you can either edit source directly on host or open Remote containers extension tab and right click `npb-app-dev` and select `Attach to Container` and open `/app` folder in remote VS Code instance. Open `http://localhost:42069` in the browser on host to see the running app.
 
 ```bash
 # terminal on host
@@ -473,7 +473,7 @@ yarn docker:npb-e2e:up
 
 ## Deployment to production
 
-I made a separate repository [nemanjam/traefik-proxy](https://github.com/nemanjam/traefik-proxy) only for deployment with Traefik reverse proxy that needs only environment variables and image from Dockerhub. There are also Github Actions workflows to build, push and redeploy latest image on your server. You should use that for deployment.
+I made a separate repository [russpalms/traefik-proxy](https://github.com/russpalms/traefik-proxy) only for deployment with Traefik reverse proxy that needs only environment variables and image from Dockerhub. There are also Github Actions workflows to build, push and redeploy latest image on your server. You should use that for deployment.
 
 For the sake of completeness I described here how to build and run production app locally and in Docker. These two can be useful as staging environments for testing. I also described how to build and push live image to Dockerhub from your local development machine.
 
@@ -561,7 +561,7 @@ services:
     image: your-dockerhub-username/your-image-name:latest
 ```
 
-For this purpose I already made separate repository [nemanjam/traefik-proxy](https://github.com/nemanjam/traefik-proxy) with Traefik reverse proxy that allows you to host multiple apps inside Docker containers where each container expose different port and Traefik maps ports to subdomains. For details how to configure this see `README.md` file and linked tutorial in it. You just need to run your app container and Traefik will automatically pick it up without you needing to restart Traefik's container manually.
+For this purpose I already made separate repository [russpalms/traefik-proxy](https://github.com/russpalms/traefik-proxy) with Traefik reverse proxy that allows you to host multiple apps inside Docker containers where each container expose different port and Traefik maps ports to subdomains. For details how to configure this see `README.md` file and linked tutorial in it. You just need to run your app container and Traefik will automatically pick it up without you needing to restart Traefik's container manually.
 
 Beside Traefik it also already has `portainer` container for managing containers, `adminer` container for administering production database, `uptime-kuma` for tracking website uptime, and another `postgres` container configured to accept connections from remote hosts (useful for building app in Github Actions).
 
@@ -590,8 +590,8 @@ APP_ENV=live
 SITE_PROTOCOL=http
 
 # real full production public domain (with subdomain), used in app and Traefik
-SITE_HOSTNAME=nextjs-prisma-boilerplate.nemanjamitic.com
-PORT=3001
+SITE_HOSTNAME=nextjs-prisma-boilerplate.russpalmsitic.com
+PORT=42069
 
 # real url is https and doesn't have port, Traefik handles https and port
 NEXTAUTH_URL=https://${SITE_HOSTNAME}
@@ -599,9 +599,9 @@ NEXTAUTH_URL=https://${SITE_HOSTNAME}
 # private vars bellow
 
 # db container
-POSTGRES_HOSTNAME=npb-db-live
+POSTGRES_HOSTNAME=192.168.4.200
 POSTGRES_PORT=5432
-POSTGRES_USER=postgres_user
+POSTGRES_USER=rpalm_user
 POSTGRES_PASSWORD=
 POSTGRES_DB=npb-db-live
 
@@ -684,12 +684,12 @@ Contributions are welcome. You can find more info how to contribute in [contribu
 
 ## Known issues
 
-- in development mode refreshing a page sometimes causes hydration error, more info in this issue [Suspense - hydration error on page refresh](https://github.com/nemanjam/nextjs-prisma-boilerplate/issues/1)
+- in development mode refreshing a page sometimes causes hydration error, more info in this issue [Suspense - hydration error on page refresh](https://github.com/russpalms/nextjs-prisma-boilerplate/issues/1)
 
 ## Related projects
 
-- [nemanjam/traefik-proxy](https://github.com/nemanjam/traefik-proxy) - repository for deployment on VPS
-- [nemanjam/hydration-test-case](https://github.com/nemanjam/hydration-test-case) - repository to isolate and debug hydration errors
+- [russpalms/traefik-proxy](https://github.com/russpalms/traefik-proxy) - repository for deployment on VPS
+- [russpalms/hydration-test-case](https://github.com/russpalms/hydration-test-case) - repository to isolate and debug hydration errors
 
 ## Motivation
 
@@ -697,7 +697,7 @@ There are a lot of talk, theory, opinions, and buzz around JavaScript frameworks
 
 ## Author
 
-[nemanjam](https://github.com/nemanjam), [Linkedin](https://www.linkedin.com/in/nemanja-mitic)
+[russpalms](https://github.com/russpalms), [Linkedin](https://www.linkedin.com/in/nemanja-mitic)
 
 ## References
 

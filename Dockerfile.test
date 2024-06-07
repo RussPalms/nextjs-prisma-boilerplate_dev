@@ -1,6 +1,7 @@
 
 # use alpine for tests like prod
-ARG BASE=node:16-alpine
+# ARG BASE=node:16-alpine
+ARG BASE=node:latest
 
 # simplified prod build
 # migrate, seed, build
@@ -39,9 +40,9 @@ RUN chown -R node:node node_modules/.prisma
 USER node
 
 # on container
-EXPOSE 3001
+EXPOSE 42069
 # env for app
-ENV PORT 3001
+ENV PORT 42069
 
 # build app at runtime, not here
 # api integration tests dont need built prod app, Jest runs code

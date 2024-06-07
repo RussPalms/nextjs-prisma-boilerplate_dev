@@ -28,7 +28,7 @@ docker-compose -f docker-compose.prod.yml build
 
 # ---
 
-export HOSTNAME="nemanjamitic.com"
+export HOSTNAME="russpalmsitic.com"
 echo $HOSTNAME
 
 docker-compose -f docker-compose.prod.yml up -d

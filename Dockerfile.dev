@@ -1,14 +1,16 @@
 
 # pick image with git and bash
 # ARG BASE=mcr.microsoft.com/vscode/devcontainers/javascript-node:0-16-bullseye
-ARG BASE=node:16-bullseye
+# ARG BASE=node:16-bullseye
+ARG BASE=node:latest
 
 # no ENV vars required buildtime
 
 #---------------------
 
 FROM ${BASE} AS dependencies
-WORKDIR /app
+WORKDIR /Volumes/docker/boilerplate-testing/nextjs-prisma-boilerplate_dev
+# WORKDIR /app
 ENV NODE_ENV development
 
 COPY package.json yarn.lock ./
@@ -29,9 +31,9 @@ RUN chown -R node:node node_modules/.prisma
 USER node
 
 # debug
-# RUN ls -la node_modules/.prisma/client
+RUN ls -la node_modules/.prisma/client
 
-EXPOSE 3001
-ENV PORT 3001
+EXPOSE 42069
+ENV PORT 42069
 
 CMD [ "yarn", "cmd:start:dev" ]

@@ -3,9 +3,9 @@
 ### Dockerfile and docker-compose dev and prod
 
 - production official Dockerfile [example](https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile)
-- production multistage Dockerfile [example](https://github.com/kachar/yadi/blob/main/web/next.js/Dockerfile)
+- production multistage Dockerfile [example](https://github.com/russpalms/blob/main/web/next.js/Dockerfile)
 - dev and prod docker-compose, Dockerfile [gist](https://gist.github.com/kennethnwc/efc81d448a6381f07fd42b4305f12f68)
-- dev Dockerfile and docker-compose [tutorial](https://dev.to/kumareth/next-js-docker-made-easy-2bok)
+- dev Dockerfile and docker-compose [tutorial](https://dev.to/rpalm/next-js-docker-made-easy-2bok)
 - multistage Dockerfile only for prod, other images aren't uploaded anywhere (dev, test)
 - if Dockerfile doesn't have CMD or entrypoint it has some default from base image
 - `env_file` vs `--env-file` [docs](https://docs.docker.com/compose/environment-variables/#using-the---env-file--option)
@@ -317,7 +317,7 @@ docker-compose --env-file ./config/.env.dev up
 - APP_ENV=live
 - SITE_PROTOCOL=http
 - SITE_HOSTNAME=subdomain.domain.com
-- PORT=3001
+- PORT=42069
 - NEXTAUTH_URL=https://subdomain.domain.com
 # private vars
 - DATABASE_URL
@@ -329,9 +329,9 @@ docker-compose --env-file ./config/.env.dev up
 
 # postgres container vars -------------------
 # private vars
-- POSTGRES_HOSTNAME=npb-db-live
+- POSTGRES_HOSTNAME=192.168.4.200
 - POSTGRES_PORT=5432
-- POSTGRES_USER=postgres_user
+- POSTGRES_USER=rpalm_user
 - POSTGRES_PASSWORD=
 - POSTGRES_DB=live-db
 
@@ -352,7 +352,7 @@ docker-compose --env-file ./config/.env.dev up
 - APP_ENV=live
 - SITE_PROTOCOL=http
 - SITE_HOSTNAME=subdomain.domain.com
-- PORT=3001
+- PORT=42069
 - NEXTAUTH_URL=https://subdomain.domain.com
 
 # app and postgres container's private vars
@@ -365,9 +365,9 @@ docker-compose --env-file ./config/.env.dev up
 - GOOGLE_CLIENT_ID
 - GOOGLE_CLIENT_SECRET
 # postgres
-- POSTGRES_HOSTNAME=npb-db-live
+- POSTGRES_HOSTNAME=192.168.4.200
 - POSTGRES_PORT=5432
-- POSTGRES_USER=postgres_user
+- POSTGRES_USER=rpalm_user
 - POSTGRES_PASSWORD=
 - POSTGRES_DB=live-db
 
@@ -491,7 +491,7 @@ yarn docker:test:e2e:down
 ```ts
 // use docker build to specify custom tag
 // must have full username/image-name to be pushed
-"docker:live:build": "dotenv -e ./envs/production-live/.env.production.live.build.local -- bash -c 'docker build -f Dockerfile.prod -t nemanjamitic/nextjs-prisma-boilerplate:latest --build-arg ARG_DATABASE_URL=${DATABASE_URL} --build-arg ARG_NEXTAUTH_URL=${NEXTAUTH_URL} .'",
+"docker:live:build": "dotenv -e ./envs/production-live/.env.production.live.build.local -- bash -c 'docker build -f Dockerfile.prod -t russpalms/nextjs-prisma-boilerplate_dev:latest --build-arg ARG_DATABASE_URL=${DATABASE_URL} --build-arg ARG_NEXTAUTH_URL=${NEXTAUTH_URL} .'",
 ```
 
 - **Dockerfile.prod runtime vs build time env vars (Dockerfile ARGs)**
@@ -516,7 +516,7 @@ Step 6/37 : WORKDIR /app
 ```bash
 docker login # username, pass
 # build, must have full username/image-name
-"docker:live:push": "docker push nemanjamitic/nextjs-prisma-boilerplate:latest",
+"docker:live:push": "docker push russpalms/nextjs-prisma-boilerplate_dev:latest",
 
 ```
 

@@ -42,7 +42,7 @@ yarn add -D eslint-plugin-react-hooks
 
 - `<Link />` with custom components requires `passHref` and `forwardRef` [next docs](https://nextjs.org/docs/api-reference/next/link#dynamic-routes)
 
-- problem: `Loading failed for the <script> with source “https://localhost:3001/_next/static/chunks/pages/settings/%5Busername%5D.js”.` and hard page refresh, solution:
+- problem: `Loading failed for the <script> with source “https://localhost:42069/_next/static/chunks/pages/settings/%5Busername%5D.js”.` and hard page refresh, solution:
 
 ```
 // use this
@@ -229,5 +229,5 @@ export const getImage = async (imageUrl: string | undefined): Promise<File> => {
 1. block all UI until **all data is ready**, Navbar for example, this
 2. all props in UserItem available at same time, fixes it, {user, me}, so so, provider should work same as props
 
-- test case repo [nemanjam/hydration-test-case](https://github.com/nemanjam/hydration-test-case)
+- test case repo [russpalms/hydration-test-case](https://github.com/russpalms/hydration-test-case)
 - isLoading in MeProvider and Navbar causes more errors in production

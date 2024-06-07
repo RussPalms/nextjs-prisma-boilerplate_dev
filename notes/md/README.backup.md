@@ -54,7 +54,7 @@ echo $NODE_EXTRA_CA_CERTS
 - Redirect URI
 
 ```
-https://localhost:3001/api/auth/callback/google
+https://localhost:42069/api/auth/callback/google
 ```
 
 ### Facebook auth
@@ -65,13 +65,13 @@ https://localhost:3001/api/auth/callback/google
   - Basic settings -> Site URL
 
   ```
-  https://localhost:3001/
+  https://localhost:42069/
   ```
 
   - Facebook login settings -> Valid OAuth Redirect URIs:
 
   ```
-  https://localhost:3001/api/auth/callback/facebook
+  https://localhost:42069/api/auth/callback/facebook
   ```
 
 ### Upload avatar and header image
@@ -191,7 +191,7 @@ code --list-extensions
 
 ### Run on Gitpod
 
-- port 3001 not exposed, run on http, not https
+- port 42069 not exposed, run on http, not https
 
 ```
 import { createServer } from 'http';
@@ -202,8 +202,8 @@ s.address()
 - fix auth url
 
 ```
-NEXTAUTH_URL=https://3001-jade-gayal-p7d8xqgb.ws-eu25.gitpod.io
-NEXT_PUBLIC_BASE_URL=https://3001-jade-gayal-p7d8xqgb.ws-eu25.gitpod.io/
+NEXTAUTH_URL=https://42069-jade-gayal-p7d8xqgb.ws-eu25.gitpod.io
+NEXT_PUBLIC_BASE_URL=https://42069-jade-gayal-p7d8xqgb.ws-eu25.gitpod.io/
 ```
 
 ### Run on Repl.it
@@ -218,8 +218,8 @@ npm i node@16.13.1
 - set auth urls
 
 ```
-NEXTAUTH_URL=https://nextjs-prisma-boilerplate.vkostunica.repl.co
-NEXT_PUBLIC_BASE_URL=https://nextjs-prisma-boilerplate.vkostunica.repl.co/
+NEXTAUTH_URL=https://nextjs-prisma-boilerplate.russpalms.repl.co
+NEXT_PUBLIC_BASE_URL=https://nextjs-prisma-boilerplate.russpalms.repl.co/
 ```
 
 ### React hook form async default values and reset
@@ -238,8 +238,8 @@ INTERFACE=wlp3s0
 WAN_IP=$(ip -4 addr show $INTERFACE | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 
 # then use WAN_IP in .env
-NEXTAUTH_URL=https://$WAN_IP:3001
-NEXT_PUBLIC_BASE_URL=https://$WAN_IP:3001/
+NEXTAUTH_URL=https://$WAN_IP:42069
+NEXT_PUBLIC_BASE_URL=https://$WAN_IP:42069/
 ```
 
 ### Custom fonts Tailwind
@@ -267,9 +267,9 @@ loadEnvConfig(projectDir);
 ### Dockerfile and docker-compose dev and prod
 
 - production official Dockerfile [example](https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile)
-- production multistage Dockerfile [example](https://github.com/kachar/yadi/blob/main/web/next.js/Dockerfile)
+- production multistage Dockerfile [example](https://github.com/russpalms/blob/main/web/next.js/Dockerfile)
 - dev and prod docker-compose, Dockerfile [gist](https://gist.github.com/kennethnwc/efc81d448a6381f07fd42b4305f12f68)
-- dev Dockerfile and docker-compose [tutorial](https://dev.to/kumareth/next-js-docker-made-easy-2bok)
+- dev Dockerfile and docker-compose [tutorial](https://dev.to/rpalm/next-js-docker-made-easy-2bok)
 
 ### Next.js and Docker env vars
 
@@ -440,7 +440,7 @@ docker-compose -f docker-compose.prod.yml build
 
 # ---
 
-export HOSTNAME="nemanjamitic.com"
+export HOSTNAME="russpalmsitic.com"
 echo $HOSTNAME
 
 docker-compose -f docker-compose.prod.yml up -d
@@ -618,7 +618,7 @@ yarn add -D eslint-plugin-react-hooks
 
 - `<Link />` with custom componenta requires `passHref` and `forwardRef` [next docs](https://nextjs.org/docs/api-reference/next/link#dynamic-routes)
 
-- problem: `Loading failed for the <script> with source “https://localhost:3001/_next/static/chunks/pages/settings/%5Busername%5D.js”.` and hard page refresh, solution:
+- problem: `Loading failed for the <script> with source “https://localhost:42069/_next/static/chunks/pages/settings/%5Busername%5D.js”.` and hard page refresh, solution:
 
 ```
 // use this

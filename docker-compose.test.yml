@@ -13,7 +13,7 @@ services:
       dockerfile: Dockerfile.test
     # container:app-process
     ports:
-      - '3001:3001'
+      - '42069:42069'
     # user: '${MY_UID}:${MY_GID}'
     volumes:
       # no src in Dockerfile, only via mount

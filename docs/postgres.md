@@ -68,7 +68,7 @@ volumes:
 
 # npb-db-test and adminer-dev must be on same external network external-host
 server: npb-db-test:5435
-username: postgres_user
+username: rpalm_user
 password: password
 database: npb-db-test
 
@@ -85,7 +85,7 @@ docker-compose -f docker-compose.dev.yml -p npb-dev up -d  adminer-dev
 # .env.local
 
 server: npb-db-dev:5432
-username: postgres_user
+username: rpalm_user
 password: password
 database: npb-db-dev
 ```
@@ -109,9 +109,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- then call with POSTGRES_USER=postgres_user from .env*.local
+-- then call with POSTGRES_USER=rpalm_user from .env*.local
 
-SELECT truncate_tables('postgres_user');
+SELECT truncate_tables('rpalm_user');
 ```
 
 ### Important: Postgres volume non-root user solution:

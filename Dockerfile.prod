@@ -1,9 +1,10 @@
 
 # https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
-# https://github.dev/kachar/yadi
+# https://github.dev/russpalms
 
 # ARG BASE=node:16-alpine
-ARG BASE=node:16.13.1-alpine
+# ARG BASE=node:16.13.1-alpine
+ARG BASE=node:latest
 
 #------ target dependencies
 
@@ -84,8 +85,8 @@ RUN chmod 766 -R uploads
 
 USER node
 
-EXPOSE 3001
-ENV PORT 3001
+EXPOSE 42069
+ENV PORT 42069
 
 ENV NEXT_TELEMETRY_DISABLED 1
 

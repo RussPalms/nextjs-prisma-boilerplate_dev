@@ -4,7 +4,8 @@
   "dockerComposeFile": "../docker-compose.dev.yml",
   "service": "npb-app-dev",
   // Dockerfile workdir
-  "workspaceFolder": "/app",
+  //   "workspaceFolder": "/app",
+  "workspaceFolder": "/Users/Volumes/docker/boilerplate-testing/nextjs-prisma-boilerplate_dev",
 
   // Set *default* container specific settings.json values on container create.
   "settings": {
@@ -36,9 +37,9 @@
   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // don't forward 3001, already forwarded in docker-compose.dev.yml
+  // don't forward 42069, already forwarded in docker-compose.dev.yml
   // only needed with Dockerfile
-  //"forwardPorts": [3001, 5432],
+  //"forwardPorts": [42069, 5432],
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "yarn dev",

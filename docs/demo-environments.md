@@ -1,6 +1,6 @@
 ### Run on Gitpod
 
-- port 3001 not exposed, run on http, not https
+- port 42069 not exposed, run on http, not https
 
 ```
 import { createServer } from 'http';
@@ -14,17 +14,17 @@ s.address()
 // .env.development
 PROTOCOL=http
 // without '/'
-NEXTAUTH_URL=https://3001-jade-gayal-p7d8xqgb.ws-eu25.gitpod.io
+NEXTAUTH_URL=https://42069-jade-gayal-p7d8xqgb.ws-eu25.gitpod.io
 
 // .env.local
-DATABASE_URL=postgresql://postgres_user:postgres-external...
+DATABASE_URL=postgresql://rpalm_user:postgres-external...
 ```
 
 ```ts
 // workspace url example
-https://nemanjam-nextjsprismaboi-u7qkzmc70mh.ws-eu39.gitpod.io/
+https://russpalms-nextjsprismaboi-u7qkzmc70mh.ws-eu39.gitpod.io/
 // website url example
-https://3001-nemanjam-nextjsprismaboi-u7qkzmc70mh.ws-eu39.gitpod.io/
+https://42069-russpalms-nextjsprismaboi-u7qkzmc70mh.ws-eu39.gitpod.io/
 ```
 
 ---
@@ -39,9 +39,9 @@ https://3001-nemanjam-nextjsprismaboi-u7qkzmc70mh.ws-eu39.gitpod.io/
 # http - use http server
 PROTOCOL=http
 # backend will use this, but gitpod will proxy it
-PORT=3001
+PORT=42069
 # hardcoded, https
-NEXTAUTH_URL=https://3001-nemanjam-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
+NEXTAUTH_URL=https://42069-russpalms-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
 
 ```
 
@@ -51,9 +51,9 @@ NEXTAUTH_URL=https://3001-nemanjam-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
 - good thing HOSTNAME is used only in server.ts (in log, trivial, protocol too) and docker-compose.prod.yml, **solution:** rename it SITE_HOSTNAME, SITE_PROTOCOL
 
 ```bash
-HOSTNAME=3001-nemanjam-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
+HOSTNAME=42069-russpalms-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
 # resolves to:
-3001-nemanjam-nextjsprismabo-dn2irzhpmzu # error
+42069-russpalms-nextjsprismabo-dn2irzhpmzu # error
 
 # HOSTNAME=reserved env var on Gitpos (and Linux), readonly
 ```
@@ -64,9 +64,9 @@ HOSTNAME=3001-nemanjam-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
 # Gitpod makes some proxy
 
 # site:
-# https://3001-nemanjam-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io/users/
+# https://42069-russpalms-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io/users/
 # api:
-# https://3001-nemanjam-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io/api/users/?page=1
+# https://42069-russpalms-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io/api/users/?page=1
 ```
 
 - `.gitpod.yml` reference [docs](https://www.gitpod.io/docs/references/gitpod-yml#image)
@@ -80,15 +80,15 @@ SITE_PROTOCOL=http
 
 # only backend will use this port (http server)
 # Gitpod will proxy it
-PORT=3001
+PORT=42069
 
-#SITE_HOSTNAME=3001-nemanjam-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
+#SITE_HOSTNAME=42069-russpalms-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
 # without https://
 SITE_HOSTNAME=${PORT}-${HOSTNAME}.${GITPOD_WORKSPACE_CLUSTER_HOST}
 
 
 # no port in url
-#NEXTAUTH_URL=https://3001-nemanjam-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
+#NEXTAUTH_URL=https://42069-russpalms-nextjsprismabo-dn2irzhpmzu.ws-eu47.gitpod.io
 NEXTAUTH_URL=https://${PORT}-${HOSTNAME}.${GITPOD_WORKSPACE_CLUSTER_HOST}
 ```
 
@@ -104,8 +104,8 @@ npm i node@16.13.1
 - set auth urls
 
 ```
-NEXTAUTH_URL=https://nextjs-prisma-boilerplate.vkostunica.repl.co
-NEXT_PUBLIC_BASE_URL=https://nextjs-prisma-boilerplate.vkostunica.repl.co/
+NEXTAUTH_URL=https://nextjs-prisma-boilerplate.russpalms.repl.co
+NEXT_PUBLIC_BASE_URL=https://nextjs-prisma-boilerplate.russpalms.repl.co/
 ```
 
 - **Repl.it final:**
@@ -115,7 +115,7 @@ NEXT_PUBLIC_BASE_URL=https://nextjs-prisma-boilerplate.vkostunica.repl.co/
 - checkout code
 
 ```bash
-cp -a ~/nextjs-prisma-boilerplate/. ~/nextjs-prisma-boilerplate-node16/
+cp -a ~/nextjs-prisma-boilerplate/. ~/nextjs-prisma-boilerplate-node16_dev/
 rm -rf ~/nextjs-prisma-boilerplate
 ```
 
@@ -142,7 +142,7 @@ rm -rf ~/nextjs-prisma-boilerplate
 
 ```bash
 SITE_PROTOCOL=http
-PORT=3001
+PORT=42069
 SITE_HOSTNAME=wo9qix.sse.codesandbox.io
 NEXTAUTH_URL=https://wo9qix.sse.codesandbox.io
 DATABASE_URL=postgres://...
@@ -157,7 +157,7 @@ DATABASE_URL=postgres://...
   "hardReloadOnChange": false,
   "view": "browser",
   "container": {
-    "port": 3001,
+    "port": 42069,
     "node": "16",
     "startScript": "codesandbox:dev:env"
   }

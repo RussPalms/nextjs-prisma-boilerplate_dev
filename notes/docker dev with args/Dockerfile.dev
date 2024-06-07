@@ -38,8 +38,8 @@ USER node
 
 RUN ls -la
 
-EXPOSE 3001
-ENV PORT 3001
+EXPOSE 42069
+ENV PORT 42069
 
 CMD [ "yarn", "start-dev" ]
 

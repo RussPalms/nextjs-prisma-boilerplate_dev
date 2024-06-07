@@ -27,9 +27,9 @@ jobs:
           script: |
             cd /home/ubuntu/traefik-proxy/apps/nextjs-prisma-boilerplate
             echo 'Old image id:'
-            docker inspect --format='{{index .RepoDigests 0}}' nemanjamitic/nextjs-prisma-boilerplate:latest 
+            docker inspect --format='{{index .RepoDigests 0}}' russpalms/nextjs-prisma-boilerplate_dev:latest 
             docker-compose down
-            docker image rm nemanjamitic/nextjs-prisma-boilerplate:latest
+            docker image rm russpalms/nextjs-prisma-boilerplate_dev:latest
             docker-compose up -d
             echo 'New image id:'
-            docker inspect --format='{{index .RepoDigests 0}}' nemanjamitic/nextjs-prisma-boilerplate:latest
+            docker inspect --format='{{index .RepoDigests 0}}' russpalms/nextjs-prisma-boilerplate_dev:latest

@@ -45,7 +45,7 @@ jobs:
 
       PROTOCOL: http
       HOSTNAME: localhost
-      PORT: 3001
+      PORT: 42069
 
       # NEXTAUTH_URL: $PROTOCOL://$HOSTNAME:$PORT
 

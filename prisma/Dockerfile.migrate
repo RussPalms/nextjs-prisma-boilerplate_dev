@@ -1,5 +1,6 @@
 
-ARG BASE=node:16-alpine
+# ARG BASE=node:16-alpine
+ARG BASE=node:latest
 
 FROM ${BASE}
 
@@ -10,7 +11,8 @@ RUN apk update \
 
 RUN openssl version
 
-WORKDIR /app
+WORKDIR /Volumes/docker/boilerplate-testing/nextjs-prisma-boilerplate_dev
+# WORKDIR /app
 
 # prisma folder mounted as volume
 COPY package.json ./

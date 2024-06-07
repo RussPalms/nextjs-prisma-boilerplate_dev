@@ -38,7 +38,7 @@ echo $NODE_EXTRA_CA_CERTS
 - Redirect URI
 
 ```
-https://localhost:3001/api/auth/callback/google
+https://localhost:42069/api/auth/callback/google
 ```
 
 ### Facebook auth
@@ -49,13 +49,13 @@ https://localhost:3001/api/auth/callback/google
   - Basic settings -> Site URL
 
   ```
-  https://localhost:3001/
+  https://localhost:42069/
   ```
 
   - Facebook login settings -> Valid OAuth Redirect URIs:
 
   ```
-  https://localhost:3001/api/auth/callback/facebook
+  https://localhost:42069/api/auth/callback/facebook
   ```
 
 ### NEXTAUTH_URL variable, once for all
@@ -64,7 +64,7 @@ https://localhost:3001/api/auth/callback/google
 
 ```ts
 // axios fails
-http://localhost:3001/undefined/api/posts/?page=2
+http://localhost:42069/undefined/api/posts/?page=2
 
 // avatars and headers fail with
 undefined/uploads/headers/header0.jpg?w=3840&q=75

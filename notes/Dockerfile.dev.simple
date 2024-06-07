@@ -1,7 +1,8 @@
 
 # pick image with git and bash
 # ARG BASE=mcr.microsoft.com/vscode/devcontainers/javascript-node:0-16-bullseye
-ARG BASE=node:16-bullseye
+# ARG BASE=node:16-bullseye
+ARG BASE=node:latest
 
 # --------------------
 
@@ -15,8 +16,8 @@ RUN yarn config set unsafe-perm true \
 
 COPY . .
 
-EXPOSE 3001
-ENV PORT 3001
+EXPOSE 42069
+ENV PORT 42069
 
 RUN npx prisma generate
 

@@ -1,4 +1,5 @@
-version: '3.8'
+# version: '3.8'
+# version: '3'
 services:
   npb-app-dev:
     image: npb-app-dev
@@ -8,47 +9,70 @@ services:
       dockerfile: Dockerfile.dev
     # command: sleep infinity
     ports:
-      - '3001:3001'
+      - 42069:42069
     volumes:
+      # - /Volumes/docker/boilerplate-testing/nextjs-prisma-boilerplate_dev/app:/app
+      # - app:/app
       - ./:/app
+      # - ./:/app
+      # - /Volumes/docker/boilerplate-testing/nextjs-prisma-boilerplate_dev/npb-app-dev-node_modules:/app/node_modules
       - npb-app-dev-node_modules:/app/node_modules
+      # - /Volumes/docker/boilerplate-testing/nextjs-prisma-boilerplate_dev/npb-app-dev-next:/app/.next
       - npb-app-dev-next:/app/.next
     env_file:
+      # - /Volumes/docker/boilerplate-testing/nextjs-prisma-boilerplate_dev/envs/development-docker/.env.development.docker
       - ./envs/development-docker/.env.development.docker
+      # - /Volumes/docker/boilerplate-testing/nextjs-prisma-boilerplate_dev/envs/development-docker/.env.development.docker.local
       - ./envs/development-docker/.env.development.docker.local
     depends_on:
       - npb-db-dev
-    networks:
-      - internal-dev
+    # networks:
+    #   - internal-dev
+    # - external-host
+    network_mode: host
 
   npb-db-dev:
-    image: postgres:14.3-bullseye
+    image: postgres:latest
+    # image: postgres:14.3-bullseye
     container_name: npb-db-dev
     restart: unless-stopped
     ports:
-      - '5432:5432'
+      - 5432:5432
     user: '${MY_UID}:${MY_GID}'
     volumes:
+      # - /Volumes/docker/boilerplate-testing/nextjs-prisma-boilerplate_dev/prisma/pg-data:/var/lib/postgresql/data
       - ./prisma/pg-data:/var/lib/postgresql/data
     # only: POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB
     environment:
       - PGDATA=/var/lib/postgresql/data/data-dev
     env_file:
       - ./envs/development-docker/.env.development.docker.local
-    networks:
-      - internal-dev
-      - external-host
+    # networks:
+    #   - internal-dev
+    #   - external-host
+    network_mode: host
+
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
+    # or
+    # network_mode: host
 
   adminer-dev:
-    image: 'adminer:4.8.1-standalone'
+    # image: "adminer:4.8.1-standalone
+    image: adminer:latest
+    # image: adminer:4.8.1-standalone
     container_name: adminer-dev
     ports:
-      - '8080:8080'
+      - 8080:8080
     depends_on:
       - npb-db-dev
-    networks:
-      - internal-dev
-      - external-host
+    network_mode: host
+    # networks:
+    #   - internal-dev
+    # - external-host
+    #  - extra_hosts
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
 
 volumes:
   npb-app-dev-node_modules:
@@ -59,3 +83,10 @@ networks:
     external: false
   external-host:
     external: true
+  #extra_hosts:
+  #  - "host.docker.internal:host-gateway"
+
+  # or
+  # host:
+  #   name: host
+  #   external: true

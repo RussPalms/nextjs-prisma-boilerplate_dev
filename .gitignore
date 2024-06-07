@@ -5,6 +5,7 @@ certs/
 dist/
 /**/tsconfig.tsbuildinfo
 yarn-error.log
+.DS_Store
 
 # postgres
 prisma/pg-data/data-*

@@ -5,13 +5,13 @@
   "keywords": [],
   "license": "MIT",
   "author": {
-    "name": "Nemanja Mitic"
+    "name": "Russell Brian Fulache Dugaduga Jale Palma"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nemanjam/nextjs-prisma-boilerplate"
+    "url": "https://github.com/russpalms/nextjs-prisma-boilerplate"
   },
-  "homepage": "https://github.com/nemanjam/nextjs-prisma-boilerplate",
+  "homepage": "https://github.com/russpalms/nextjs-prisma-boilerplate",
   "scripts": {
     "dev": "NODE_ENV=development nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
@@ -55,9 +55,9 @@
     "cypress": "cypress open --project ./tests-e2e",
     "cypress:headless": "cypress run --project ./tests-e2e",
     "start:e2e": "NODE_ENV=test node dist/index.js",
-    "test:e2e": "start-server-and-test start:e2e 3001 cypress",
+    "test:e2e": "start-server-and-test start:e2e 42069 cypress",
     "test:e2e:env": "dotenv -e .env.test.local -- sh -c 'yarn test:e2e'",
-    "test:e2e:headless": "start-server-and-test start:e2e 3001 cypress:headless",
+    "test:e2e:headless": "start-server-and-test start:e2e 42069 cypress:headless",
     "test:e2e:headless:env": "dotenv -e .env.test.local -- sh -c 'yarn test:e2e:headless'",
     "docker:npb-app-test:build": "docker-compose -f docker-compose.test.yml build npb-app-test",
     "docker:npb-e2e:build": "docker-compose -f docker-compose.test.yml -f docker-compose.e2e.yml build npb-e2e",

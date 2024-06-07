@@ -210,7 +210,7 @@ npb-e2e         |       TS18002: The 'files' list in config file 'tsconfig.json'
 ```ts
 // tests-e2e/package.json
 "scripts": {
-  "test": "wait-on http://npb-app-test:3001 && cypress run --project ./tests-e2e"
+  "test": "wait-on http://npb-app-test:42069 && cypress run --project ./tests-e2e"
 },
 ```
 
@@ -367,7 +367,7 @@ npb-e2e:
   # docker env override
   environment:
     # only cy.visit(), cy.request() url
-    - CYPRESS_baseUrl=http://npb-app-test:3001
+    - CYPRESS_baseUrl=http://npb-app-test:42069
     # seed db_url
     - POSTGRES_HOSTNAME=npb-db-test
   # only db_url for seed, no Next.js vars
@@ -412,17 +412,17 @@ DATABASE_URL=postgresql://${POSTGRES_USER}...
 # api integration
 # local
 # .env.test
-HOSTNAME=localhost
+HOSTNAME=192.168.4.200
 
 # .env.test.local
-POSTGRES_HOSTNAME=localhost
+POSTGRES_HOSTNAME=192.168.4.200
 DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOSTNAME}:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public
 
 # ----
 # docker
 # .env.test
-# http://npb-db-test:3001/api/auth/session - cannot work as localhost...
-HOSTNAME=localhost # maybe npb-app-test will work, no browser
+# http://npb-db-test:42069/api/auth/session - cannot work as localhost...
+HOSTNAME=192.168.4.200 # maybe npb-app-test will work, no browser
 
 # .env.test.local
 POSTGRES_HOSTNAME=npb-db-test

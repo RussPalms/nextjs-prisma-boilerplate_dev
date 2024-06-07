@@ -13,7 +13,7 @@ services:
         - ARG_DATABASE_URL=$DATABASE_URL
         - ARG_NEXTAUTH_URL=$NEXTAUTH_URL
     ports:
-      - '3001:3001'
+      - '42069:42069'
     #command: sleep infinity
     volumes:
       - ./uploads:/app/uploads

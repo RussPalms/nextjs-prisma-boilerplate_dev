@@ -16,6 +16,7 @@ generator client {
 datasource db {
   provider = "postgres" 
   url      =  env("DATABASE_URL")
+//   url      = "rpalm_user:password@192.168.4.200:5432/npb-db-dev?schema=public"
 }
 
 model Post {

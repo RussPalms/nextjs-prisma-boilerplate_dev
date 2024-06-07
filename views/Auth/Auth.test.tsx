@@ -7,7 +7,7 @@ import { fakeUser } from 'test-client/server/fake-data';
 import userEvent from '@testing-library/user-event';
 import { signIn, ClientSafeProvider } from 'next-auth/react';
 
-const authUrl = 'https://localhost:3001/api/auth/';
+const authUrl = 'https://localhost:42069/api/auth/';
 const providers: Record<string, ClientSafeProvider> = {
   facebook: {
     id: 'facebook',

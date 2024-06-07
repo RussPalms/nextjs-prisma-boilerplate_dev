@@ -175,7 +175,7 @@ Error: `experimental.runtime` requires `experimental.reactRoot` to be enabled al
 // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL; // with '/'
 // const trimmedBaseUrl = baseUrl.replace(/\/$/, ''); // without
 
-// baseUrl https://localhost:3001
+// baseUrl https://localhost:42069
 // 'false' or url, not good
 const baseUrl = isBrowser() && window.location.origin; // without '/'
 ```

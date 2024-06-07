@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 
 # backup working cypress and api integration tests before extended docker-compose.e2e.yml 
 

@@ -2,7 +2,7 @@ version: '3.8'
 services:
   npb-app-live:
     container_name: npb-app-live
-    image: nemanjamitic/nextjs-prisma-boilerplate:latest
+    image: russpalms/nextjs-prisma-boilerplate_dev:latest
     #command: sleep infinity
     volumes:
       - ./uploads:/app/uploads
@@ -32,7 +32,7 @@ services:
       - 'traefik.http.routers.npb-app-secure.rule=Host(`${SITE_HOSTNAME}`)'
       - 'traefik.http.routers.npb-app-secure.entrypoints=websecure'
       - 'traefik.http.routers.npb-app-secure.service=npb-app-svc'
-      - 'traefik.http.services.npb-app-svc.loadbalancer.server.port=3001'
+      - 'traefik.http.services.npb-app-svc.loadbalancer.server.port=42069'
     depends_on:
       - npb-db-live
     networks:
